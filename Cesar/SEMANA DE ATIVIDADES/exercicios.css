@@ -1,0 +1,190 @@
+.alterarfundo{
+    background-color: wheat;
+}
+#estilizacao{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color:brown;
+    text-align: center;
+}
+.titulos{
+    color: aqua;
+    font-family:'Times New Roman', Times, serif;
+    font-size: 1cm;
+}
+.borda{
+    position: absolute;
+    border: 2px solid slateblue;
+    box-shadow: 10px 20px rgb(208, 109, 109);
+    padding: 2cm;
+    margin: 3cm;
+    top: 40%; 
+    left: 60%;
+    transform: translate(-50%, -50%);
+}
+#lista{
+    list-style-type:lower-alpha;
+    font-weight: bold;
+    padding-left: 100px;
+}
+#link:hover{ 
+    text-decoration: underline;
+	color:#00f351;
+	font-size:150%
+}
+.botao:hover{
+        background-color: rgb(82, 82, 212);
+        color: white;
+        transform: scale(2.2)
+}
+.botao{
+    border: solid 1px rgb(37, 37, 187);
+    border-bottom: 20px;
+    color: rgb(72, 72, 214);
+    background-color: rgb(255, 0, 0);
+    transition: background-color 0.5s ease, color 0.5s ease, transform 0.5s ease;
+    margin-bottom: 20px;
+    margin-left: 110px;
+}
+#imagem{
+    position: absolute;
+    width: 5cm;
+    height: 5cm;
+    left: 50%;
+    border-radius: 20px;
+    border-color: blueviolet;
+    border-style: groove;
+    border-width: 1cm; 
+}
+.navegacao{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    font-size: 1cm;
+    
+}
+.navegacao a {
+    text-decoration: none;
+    color: #fc0000;
+    font-weight: bold;
+}
+.navegacao a:hover {
+    color: #ffd700; 
+}
+.navegacao li{
+    margin-left: 10px;
+}
+#botaoformulario{
+    background-color: aqua;
+    border-radius: 2px;
+    cursor: pointer;
+}
+#formulario{
+    
+}
+#nome{
+    width: 10%;
+    padding: 10px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 1px solid #9c3434;
+    border-radius: 4px;
+}
+#e-mail{
+    width: 10%;
+    padding: 10px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 1px solid #9c3434;
+    border-radius: 4px;
+}
+#mensagem{
+    width: 10%;
+    padding: 10px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 1px solid #9c3434;
+    border-radius: 4px;
+}
+#botaoformulario:hover{
+    background-color: rgb(42, 42, 112);
+    color: white;
+    transform: scale(1.2)
+}
+.destaque-container {
+    width: 200px;
+    height: 200px;
+    background-color: #9e2828;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    margin: 20px;
+}
+.destaque-botao {
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(219, 174, 52, 0.7);
+    transition: box-shadow 0.3s ease;
+}
+.destaque-botao:hover {
+    box-shadow: 0 8px 16px rgba(0, 255, 76, 0.7);
+}
+.destaque-card {
+    width: 300px;
+    padding: 20px;
+    background-color: #b84545;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+}
+.destaque-card:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+table {
+    width: 20%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #3498db;
+    color: #fff;
+}
+
+tr:hover {
+    background-color: #f5f5f5;
+}
+
+tr:nth-child(even) {
+    background-color: #ecf0f1;
+}
+
+.coluna {
+    display: flex;
+    flex: 1;
+    padding: 20px;
+    box-sizing: border-box;
+    background: linear-gradient(to bottom, #aaeb15, #2980b9);
+}
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-Br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minha Primeira Página</title>
+    
+</head>
+<body>
+    <h1 id="exemplo">Texto de exemplo</h1>
+    <p> Olá este é um paragrafo de exemplo</p>
+    <figure>
+        <img src="https://yt3.googleusercontent.com/l1cA_ZiBK75KPC5s-f38D8G_sGvY1LRU9Hi8OSkvFUPNijamzL6hPtb59MrgNr8c6QvQZl07Ew=s900-c-k-c0x00ffffff-no-rj" width="200" height="200" alt="Imagem Senai">
+        <figcaption>Senai</figcaption>
+    </figure>
+    <ul>
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+    </ul>
+   <main>
+    <form>
+        <h1 id="formulario">Formulário</h1>
+        <label for="Nome">Nome:</label> <input type="text" placeholder="Digite o seu nome" id="nome" required>
+        <label for="E-mail">E-mail: </label> <input type="text" placeholder="Digite seu e-mail" id="e-mail" required>
+        <label for="Mensagem">Mensagem: </label> <input type="text" placeholder="Digite uma Mensagem" id="mensagem" required>
+        <button type="submit">Enviar</button>
+    </form>
+   </main>
+   <h1 id="video">Video</h1>
+   <iframe width="560" height="315" src="https://www.youtube.com/embed/9vWgSTdkc2A?si=FzF8Pl0N8VWtB9VA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+   <table border="1">
+        <tr>
+            <td>Senai</td>
+            <td>Aluno</td>
+            <td>Série</td>
+        </tr>
+        <tr>
+            <td>São José</td>
+            <td>César</td>
+            <td>Terceiro</td>
+        </tr>
+        <tr>
+            <td>Florianopolis</td>
+            <td>João</td>
+            <td>Segundo</td>
+        </tr>
+   </table>
+<button onclick="alerta()">Alerta</button>
+<script>
+    function alerta(){
+    alert("ola");
+    }
+</script>
+<h1><a href="https://www.youtube.com">Clique aqui para acessar o youtube</a></h1>
+<h1 id="especiais">Caracteres especiais</h1>
+<p>Todos os direitos reservados a &copy;Copyright</p>
+<p>&larr;	Seta a Esquerda<br>
+&uarr; Seta para Cima <br>
+&rarr; Seta para Direita <br>
+&darr; Seta para Baixo <br>
+&spades; Naipe Espadas <br>
+&clubs;	Naipe Paus <br>
+&hearts; Naipe Copas <br>
+&diams; Naipe Ouros</p>
+<nav>
+    <ul>
+      <li><a href="#exemplo">Exemplo</a></li>
+      <li><a href="#formulario">Formulario</a></li>
+      <li><a href="#video">video</a></li>
+      <li><a href="#especiais">Caracteres especiais</a></li>
+    </ul>
+</body>
+</html>
