@@ -1,0 +1,44 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+.container{
+    display: flex;
+    padding: 20px 70px;
+    width: 1201px;
+    align-items: center;
+}
+
+.header img{
+    width: 70px;
+}
+
+header{
+    background-color: aqua;
+    justify-content: space-between;
+}
+
+.header .navbar{
+    display: flex;
+    font-size: 20px;
+    gap: 40px;
+}
+
+.header .navbar a{
+    color:brown;
+
+}
+
+.header li{
+    list-style: none;
+}
+
+@media screen and (max-width: 600px) {
+    .container{
+        display: flex;
+        padding: 20px 70px;
+        align-items: center;
+        flex-direction: column;
+    }
+}

@@ -1,0 +1,32 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  text-align: center;
+  width: 100vw;
+  background-color: rgb(0, 0, 0);
+  padding: 20px 60px;
+  color: white;
+}
+.Carros{
+  text-align: center;
+}
+.Car{
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.Carros img{
+
+  width: 300px;
+  height: 300px;
+ margin: 10px;
+ border: 2px solid rgb(0, 0, 0);
+ object-fit: cover;
+}
+.Carros img:hover{
+  transform: scale(1.08);
+  transition: 1s;
+}

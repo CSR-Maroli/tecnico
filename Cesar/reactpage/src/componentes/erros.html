@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* Estilos apenas para melhorar a aparência */
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+    </head>
+    <body>
+    
+    <h2>Selecione o número da fila e da cadeira:</h2>
+    
+    <div>
+        <label for="fila">Fila:</label>
+        <input type="number" id="fila" min="1">
+    </div>
+    
+    <div>
+        <label for="cadeira">Cadeira:</label>
+        <input type="number" id="cadeira" min="1">
+    </div>
+    
+    <button onclick="selecionarCadeiraEFila()">Selecionar</button>
+    
+    <script>
+        function selecionarCadeiraEFila() {
+            var fila = document.getElementById("fila").value;
+            var cadeira = document.getElementById("cadeira").value;
+    
+            alert("Você selecionou a fila " + fila + " e a cadeira " + cadeira + ".");
+        }
+    </script>
+</body>
+</html>
