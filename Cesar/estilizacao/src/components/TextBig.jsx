@@ -2,8 +2,8 @@ import React from 'react';
 
 export default function TextBig({ label }) {
   return (
-    <p className="text-big">
+    <h1 className="text-big">
       {label}
-    </p>
+    </h1>
   );
 }
