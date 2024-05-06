@@ -4,51 +4,75 @@
 }
 
 .cabeca {
-  background-color: cadetblue;
+  background-color: rgb(128, 47, 27);
+  height: 70px;
+  align-items: center;
+  display: flex;
+  font-size: 30px;
+  justify-content: center;
+  color: white;
 }
 
 .Banner {
-  width: 100%; /* Largura da seção */
-  height: 300px; /* Altura da seção (definida para este exemplo) */
-  position: relative; /* Para poder posicionar a imagem absolutamente */
-  background-color: #333;
+  width: 100%;
+  height: 300px;
+  position: relative;
+  background-color: rgba(51, 51, 51, 0.5);
   background-blend-mode: overlay;
+  background-image: url("https://www.maxieduca.com.br/blog/wp-content/uploads/2016/05/iStock_000083601441_Large-1024x728.jpg");
+  background-size: cover;
+  background-position: center;
 }
 
 #titulobanner {
-  position: absolute; /* Posição absoluta para posicionar o texto */
-  top: 50%; /* Centralizar verticalmente */
-  left: 50%; /* Centralizar horizontalmente */
-  transform: translate(-50%, -50%); /* Correção para centralizar totalmente */
-  text-align: center; /* Alinhar o texto ao centro */
-  color: blue;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: rgb(255, 255, 255);
   font-size: 50px;
 }
 
 .Banner img {
-  width: 100%; /* Largura da imagem igual à largura da seção */
-  height: 100%; /* Altura da imagem igual à altura da seção */
-  object-fit: cover; /* Para a imagem preencher completamente o espaço da seção */
-  position: absolute; /* Posição absoluta para cobrir toda a seção */
-  top: 0; /* Alinhamento superior */
-  left: 0; /* Alinhamento à esquerda */
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 .sobrelivro {
-  display: flex; /* Usando flexbox para centralizar verticalmente */
-  align-items: center; /* Centralizar verticalmente */
-  justify-content: center; /* Centralizar horizontalmente */
-  gap: 20px; /* Espaçamento entre os elementos */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
 }
 
 .Informacoes {
-  padding: 20px; /* Espaçamento interno */
+  padding: 20px;
   margin-left: 80px;
   font-size: 20px;
 }
 
-/* Para garantir que a imagem ocupe a altura total da seção */
 .sobrelivro img {
   height: 500px;
   margin-right: 80px;
+}
+.galeria img{
+  object-fit: cover;
+  width: 300px;
+  height: 300px;
+  
+}
+.galeria{
+  display: flex;
+  flex-wrap: wrap;
+  padding: 30px 80px;
+  justify-content: center;
+  gap: 10px;
+}
+#livros{
+  text-align: center;
 }
