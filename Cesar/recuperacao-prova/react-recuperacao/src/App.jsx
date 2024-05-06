@@ -1,5 +1,6 @@
 import './App.css'
 import Banner from './Componentes/Banner'
+import Footer from './Componentes/Footer'
 import Galeria from './Componentes/Galeria'
 import Header from './Componentes/Header'
 import Livro from './Componentes/Livro'
@@ -18,6 +19,7 @@ function App() {
       />
     <h1 id='livros'>Livros</h1>
     <Galeria />
+    <Footer />
     </>
   )
 }
