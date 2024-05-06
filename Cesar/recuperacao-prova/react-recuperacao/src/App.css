@@ -1,0 +1,54 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.cabeca {
+  background-color: cadetblue;
+}
+
+.Banner {
+  width: 100%; /* Largura da seção */
+  height: 300px; /* Altura da seção (definida para este exemplo) */
+  position: relative; /* Para poder posicionar a imagem absolutamente */
+  background-color: #333;
+  background-blend-mode: overlay;
+}
+
+#titulobanner {
+  position: absolute; /* Posição absoluta para posicionar o texto */
+  top: 50%; /* Centralizar verticalmente */
+  left: 50%; /* Centralizar horizontalmente */
+  transform: translate(-50%, -50%); /* Correção para centralizar totalmente */
+  text-align: center; /* Alinhar o texto ao centro */
+  color: blue;
+  font-size: 50px;
+}
+
+.Banner img {
+  width: 100%; /* Largura da imagem igual à largura da seção */
+  height: 100%; /* Altura da imagem igual à altura da seção */
+  object-fit: cover; /* Para a imagem preencher completamente o espaço da seção */
+  position: absolute; /* Posição absoluta para cobrir toda a seção */
+  top: 0; /* Alinhamento superior */
+  left: 0; /* Alinhamento à esquerda */
+}
+
+.sobrelivro {
+  display: flex; /* Usando flexbox para centralizar verticalmente */
+  align-items: center; /* Centralizar verticalmente */
+  justify-content: center; /* Centralizar horizontalmente */
+  gap: 20px; /* Espaçamento entre os elementos */
+}
+
+.Informacoes {
+  padding: 20px; /* Espaçamento interno */
+  margin-left: 80px;
+  font-size: 20px;
+}
+
+/* Para garantir que a imagem ocupe a altura total da seção */
+.sobrelivro img {
+  height: 500px;
+  margin-right: 80px;
+}
