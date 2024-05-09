@@ -19,6 +19,12 @@
 .item3{
   background-color: chartreuse;
 }
+body {
+  object-fit: fill;
+  height: 1020px;
+  width: 100%;
+  background-image: url("https://moneyinvest.com.br/wp-content/uploads/2023/10/Tigrinho.jpg-1000x600.webp");
+}
 @media screen and (max-width: 600px){
   .container{
     flex-direction: column;
