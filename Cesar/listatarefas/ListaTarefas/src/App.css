@@ -1,0 +1,65 @@
+*{
+    margin: 0;
+    padding: 0;
+    background-color: green;
+}
+
+.center h1{
+    display: flex;
+    justify-content: center;
+    font-size: 50px;
+}
+h1{
+    color: #fff;
+}
+.input input{
+    color: #fff;
+    font-size: 28px;
+    width: 400px;
+    padding: 10px 3px 3px;
+    background-color: #3fd818;
+    border: none;
+    border-radius: 4px;
+    justify-content: center;
+}
+.input{
+    text-align: center;
+}
+.ad {
+    font-size: 28px;
+    background-color: #3fd818;
+    padding: 6px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: transform 0.1s, background-color 0.3s;
+}
+
+.ad:active {
+    background-color: #00af1d;
+    transform: translateY(4px);
+}
+.lista{
+    list-style-type: none; /* Remove os marcadores padrão da lista */
+    padding: 0; /* Remove o padding padrão */
+    margin: 0; /* Remove a margem padrão */
+    display: flex; /* Usa flexbox para alinhar os itens */
+    flex-direction: column; /* Alinha os itens verticalmente */
+    align-items: center; /* Centraliza os itens horizontalmente */
+    color: #fff;
+    font-size: 30px;
+
+}
+.lista button{
+    font-size: 20px;
+    background-color: #3fd818;
+    padding: 3px 2px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: transform 0.1s, background-color 0.3s;
+}
+.lista button:active {
+    background-color: #00af1d;
+    transform: translateY(4px);
+}

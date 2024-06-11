@@ -10,6 +10,8 @@ const taskReducer = (state, action) => {
       const atualizarTarefa = [...state]
       atualizarTarefa[action.payload].completed = true
       return atualizarTarefa
+    case 'REMOVER':
+      return state.filter((_, index) => index !== action.payload)
     default:
       return state
   }
@@ -37,6 +39,16 @@ function App() {
     }
   }, [tarefa])
 
+    //funcao marcar tarefa como concluida
+  const concluirTarefa = useCallback((index) =>{
+    dispatch ({type: 'CONCLUIDO', payload: index})
+    //disparando ação tipo concluido para o useReducer
+    //usando o meu dado atual (payload) a partir do seu index (posição)
+  })
+
+  const removerTarefa = useCallback((index) =>{
+    dispatch ({type: 'REMOVER', payload: index})
+  })
   return (
     <>
       <div className="center">
@@ -48,14 +60,32 @@ function App() {
             value={tarefa}
             onChange={(e) => setTarefa(e.target.value)}
           />
-          <button onClick={addTarefa}>Adicionar</button>
+          <button className='ad' onClick={addTarefa}>Adicionar</button>
         </div>
-        <ul>
+        <ul className='lista'>
           {/* Criando nossa lista de tarefas vamos usar .map para mapear cada tarefa da lista, seguindo um index de posição de cada tarefa */}
           {tarefaAtual.map((tarefas, index) => (
             // Começando a lista de cada tarefa
             <li key={index}>
+              <span style={{ textDecoration: tarefas.completed ? 'line-through' : 'none' }}>
+                {/*adicionando style que verifica se a tarefa foi marcada como completed e adiciona um riscado, se nao foi marcada, nao tem nada de textDecoration*/}
               {tarefas.text}
+              </span>
+              {
+                //verificar se a tarefa atual foi adicionada e se não esta concluida
+                //pq o completed inicial foi marcado como false
+                !tarefaAtual.completed && (
+                  <>
+                  {/*botao que chama funcao concluir tarefa a partir do seu index (posicao) */}
+                  <button onClick={() => concluirTarefa(index)}>
+                  Concluir tarefa
+                </button>
+                <button onClick={() => removerTarefa(index)}>
+                  Remover Tarefa
+                </button>
+                  </>
+                )
+                }
             </li>
           ))}
         </ul>
