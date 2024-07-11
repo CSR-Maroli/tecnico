@@ -1,14 +1,13 @@
 const express = require('express')
 require("dotenv").config()
-const connectDB = require('./db')
+const { connectDB }  = require('./db')
+const rotas = require('./rotas')
 
 const app = express()
 
 connectDB()
 
-app.get('/test-api', function (req, res){
-    res.send(' NOSSA API TA FUNCIONANDO')
-})
+app.use("/usuarios", rotas)
 
 app.listen(8000)
 
