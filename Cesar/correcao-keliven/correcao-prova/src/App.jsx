@@ -1,24 +1,21 @@
-import Evento from "./componentes/Evento"
-import './App.css'
-import Galeria from "./componentes/Galeria"
-import Cabecalho from "./componentes/Cabecalho"
-import Rodape from "./componentes/Rodape"
+import React, { useState } from 'react';
+import Header from './components/Header';
+import Clubs from './components/Clubs';
+import './App.css';
 
 function App() {
+  const [searchTerm, setSearchTerm] = useState('');
+
+  const handleSearch = (term) => {
+    setSearchTerm(term);
+  };
 
   return (
-    <>
-    <Cabecalho />
-     <Evento 
-      titulo={"Senai"}
-      descricao={"Venha fazer parte dessa era de gamers. Aqui no SENAI, para a nossa próxima gincana, tivemos a idéia de trazermos todas as nossas habilidades para campo. Traga o seu computador e venha participar de várias competições."}
-      horario={"18:00"}
-      local={"Na casa do melhor(João Pedro Benvenutti Vidal Cardoso)"}
-     />
-     <Galeria />
-      <Rodape />
-    </>
-  )
+    <div className="App">
+      <Header name="Nome do Aluno" turma="Turma do Aluno" onSearch={handleSearch} />
+      <Clubs searchTerm={searchTerm} />
+    </div>
+  );
 }
 
-export default App
+export default App;
