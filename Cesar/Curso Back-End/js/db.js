@@ -28,4 +28,4 @@ const setup = async (req, res) => {
 }
 
 
-module.exports = {connectDB, setup}
+module.exports = {connectDB, setup, client}

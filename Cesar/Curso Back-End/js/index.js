@@ -4,6 +4,8 @@ const { connectDB }  = require('./db')
 const rotas = require('./rotas')
 
 const app = express()
+app.use(express.urlencoded({ extended: true}))
+app.use(express.json())
 
 connectDB()
 
