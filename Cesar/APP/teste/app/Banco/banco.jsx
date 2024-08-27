@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, Button, StyleSheet, Image } from 'react-native';
+import { View, Text, TextInput, Button, StyleSheet, Image, Modal, Pressable } from 'react-native';
 
 const BalanceDisplay = ({ balance }) => {
+
   return (
     <View style={styles.balanceContainer}>
         <Image 
@@ -25,7 +26,7 @@ const TransactionInput = ({ onDeposit, onWithdraw }) => {
       setAmount('');
     }
   };
-
+0
   const handleWithdraw = () => {
     const value = parseFloat(amount);
     if (!isNaN(value) && value > 0) {
@@ -33,6 +34,7 @@ const TransactionInput = ({ onDeposit, onWithdraw }) => {
       setAmount('');
     }
   };
+  const [modalVisible, setModalVisible] = useState(false);
 
   return (
     <View style={styles.inputContainer}>
@@ -45,7 +47,28 @@ const TransactionInput = ({ onDeposit, onWithdraw }) => {
       />
       <View style={styles.buttonContainer}>
         <Button title="Depositar" onPress={handleDeposit} />
-        <Button title="Sacar" onPress={handleWithdraw} />
+        <Button title="Sacar" onPress={setModalVisible(true)} />
+      </View>
+      <View>
+      <Modal         
+        animationType="slide"
+        transparent={true}
+        visible={modalVisible}
+        onRequestClose={() => {
+        Alert.alert('Modal has been closed.');
+        setModalVisible(!modalVisible);
+      }}>
+        <View style={styles.centeredView}>
+          <View style={styles.modalView}>
+            <Text style={styles.modalText}>Hello World!</Text>
+            <Pressable
+              style={[styles.button, styles.buttonClose]}
+              onPress={() => setModalVisible(!modalVisible)}>
+              <Text style={styles.textStyle}>Hide Modal</Text>
+            </Pressable>
+          </View>
+        </View>
+      </Modal>
       </View>
     </View>
   );
