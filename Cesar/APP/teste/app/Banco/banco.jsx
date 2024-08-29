@@ -1,96 +1,106 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, Button, StyleSheet, Image, Modal, Pressable } from 'react-native';
 
-const BalanceDisplay = ({ balance }) => {
-
-  return (
-    <View style={styles.balanceContainer}>
-        <Image 
-            source={require('./santander.png')}
-            style={styles.logo}
-            resizeMode="contain"
-        />
-      <Text style={styles.balanceText}>Saldo Atual:</Text>
-      <Text style={styles.balanceAmount}>R$ {balance.toFixed(2)}</Text>
-    </View>
-  );
-};
-
-const TransactionInput = ({ onDeposit, onWithdraw }) => {
-  const [amount, setAmount] = useState('');
-
-  const handleDeposit = () => {
-    const value = parseFloat(amount);
-    if (!isNaN(value) && value > 0) {
-      onDeposit(value);
-      setAmount('');
-    }
-  };
-0
-  const handleWithdraw = () => {
-    const value = parseFloat(amount);
-    if (!isNaN(value) && value > 0) {
-      onWithdraw(value);
-      setAmount('');
-    }
-  };
-  const [modalVisible, setModalVisible] = useState(false);
-
-  return (
-    <View style={styles.inputContainer}>
-      <TextInput
-        style={styles.input}
-        keyboardType="numeric"
-        placeholder="Digite o valor"
-        value={amount}
-        onChangeText={setAmount}
-      />
-      <View style={styles.buttonContainer}>
-        <Button title="Depositar" onPress={handleDeposit} />
-        <Button title="Sacar" onPress={setModalVisible(true)} />
-      </View>
-      <View>
-      <Modal         
-        animationType="slide"
-        transparent={true}
-        visible={modalVisible}
-        onRequestClose={() => {
-        Alert.alert('Modal has been closed.');
-        setModalVisible(!modalVisible);
-      }}>
-        <View style={styles.centeredView}>
-          <View style={styles.modalView}>
-            <Text style={styles.modalText}>Hello World!</Text>
-            <Pressable
-              style={[styles.button, styles.buttonClose]}
-              onPress={() => setModalVisible(!modalVisible)}>
-              <Text style={styles.textStyle}>Hide Modal</Text>
-            </Pressable>
-          </View>
-        </View>
-      </Modal>
-      </View>
-    </View>
-  );
-};
-
 const App = () => {
   const [balance, setBalance] = useState(7320.92);
+  const [amount, setAmount] = useState('');
+  const [modalDepositarVisible, setModalDepositarVisible] = useState(false);
+  const [modalSacarVisible, setModalSacarVisible] = useState(false);
 
-  const handleDeposit = (amount) => {
-    const bonus = amount * 0.01;
-    setBalance((prevBalance) => prevBalance + amount + bonus);
+  const depositar = () => {
+    const value = parseFloat(amount);
+    if (!isNaN(value) && value > 0) {
+      const bonus = value * 0.01;
+      setBalance((prevBalance) => prevBalance + value + bonus);
+      setModalDepositarVisible(false);
+      setAmount('');
+    }
   };
 
-  const handleWithdraw = (amount) => {
-    const penalty = (balance - amount) * 0.025;
-    setBalance((prevBalance) => prevBalance - amount - penalty);
+  const sacar = () => {
+    const value = parseFloat(amount);
+    if (!isNaN(value) && value > 0) {
+      const penalty = value * 0.025;
+      if (balance >= value + penalty) {
+        setBalance((prevBalance) => prevBalance - value - penalty);
+      } else {
+        alert("Saldo insuficiente para realizar o saque com a penalidade.");
+      }
+      setModalSacarVisible(false);
+      setAmount('');
+    }
   };
 
   return (
     <View style={styles.container}>
-      <BalanceDisplay balance={balance} />
-      <TransactionInput onDeposit={handleDeposit} onWithdraw={handleWithdraw} />
+      <View style={styles.balanceContainer}>
+        <Image source={require('./santander.png')} style={styles.logo} resizeMode="contain" />
+        <Text style={styles.balanceText}>Saldo Atual:</Text>
+        <Text style={styles.balanceAmount}>R$ {balance.toFixed(2)}</Text>
+      </View>
+
+      <View style={styles.inputContainer}>
+        <TextInput
+          style={styles.input}
+          keyboardType="numeric"
+          placeholder="Digite o valor"
+          value={amount}
+          onChangeText={setAmount}
+        />
+        <View style={styles.buttonContainer}>
+          <Button title="Depositar" onPress={() => setModalDepositarVisible(true)} />
+          <Button title="Sacar" onPress={() => setModalSacarVisible(true)} />
+        </View>
+      </View>
+
+      <Modal
+        animationType="slide"
+        transparent={true}
+        visible={modalSacarVisible}
+        onRequestClose={() => setModalSacarVisible(false)}
+      >
+        <View style={styles.centeredView}>
+          <View style={styles.modalView}>
+            <Text style={styles.modalText}>Confirme a retirada</Text>
+            <Pressable
+              style={[styles.button, styles.buttonClose]}
+              onPress={sacar}
+            >
+              <Text style={styles.textStyle}>Confirmar</Text>
+            </Pressable>
+            <Pressable
+              style={[styles.button, styles.buttonClose]}
+              onPress={() => setModalSacarVisible(false)}
+            >
+              <Text style={styles.textStyle}>Cancelar</Text>
+            </Pressable>
+          </View>
+        </View>
+      </Modal>
+      <Modal
+        animationType="slide"
+        transparent={true}
+        visible={modalDepositarVisible}
+        onRequestClose={() => setModalDepositarVisible(false)}
+      >
+        <View style={styles.centeredView}>
+          <View style={styles.modalView}>
+            <Text style={styles.modalText}>Confirme o depósito</Text>
+            <Pressable
+              style={[styles.button, styles.buttonClose]}
+              onPress={depositar}
+            >
+              <Text style={styles.textStyle}>Confirmar</Text>
+            </Pressable>
+            <Pressable
+              style={[styles.button, styles.buttonClose]}
+              onPress={() => setModalDepositarVisible(false)}
+            >
+              <Text style={styles.textStyle}>Cancelar</Text>
+            </Pressable>
+          </View>
+        </View>
+      </Modal>
     </View>
   );
 };
@@ -128,6 +138,42 @@ const styles = StyleSheet.create({
   buttonContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
+  },
+  centeredView: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: 22,
+  },
+  modalView: {
+    margin: 20,
+    backgroundColor: 'white',
+    borderRadius: 20,
+    padding: 35,
+    alignItems: 'center',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.25,
+    shadowRadius: 4,
+    elevation: 5,
+  },
+  button: {
+    borderRadius: 10,
+    padding: 10,
+    marginTop: 10,
+  },
+  buttonClose: {
+    backgroundColor: '#2196F3',
+  },
+  textStyle: {
+    color: 'white',
+    fontWeight: 'bold',
+    textAlign: 'center',
+  },
+  modalText: {
+    marginBottom: 15,
+    textAlign: 'center',
+    fontSize: 18,
   },
 });
 
